@@ -1,13 +1,14 @@
-import React, { useContext } from "react";
-import PersonContext from "../contexts/PersonContext";
+import React from "react";
 import Person from "./Person";
 
-const DisplayPerson = () => {
-  const { persons } = useContext(PersonContext);
-  console.log(persons);
+const DisplayPerson = ({ persons, tmpPersons }) => {
+  let personsToDisplay = [];
+  tmpPersons.length === 0
+    ? (personsToDisplay = [...persons])
+    : (personsToDisplay = [...persons, tmpPersons]);
   return (
     <div>
-      {persons.map((person, id) => {
+      {personsToDisplay.map((person, id) => {
         return <Person {...person} key={id} />;
       })}
     </div>

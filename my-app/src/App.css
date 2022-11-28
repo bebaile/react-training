@@ -1,3 +1,10 @@
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vw;
+}
+
 .coordonees {
   margin: 1rem;
   padding: 1rem;
