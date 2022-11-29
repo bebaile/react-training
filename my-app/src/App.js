@@ -3,6 +3,7 @@ import personItems from "./data/data.js";
 import DisplayPerson from "./components/DisplayPerson";
 import AddPerson from "./components/AddPerson";
 import "./App.css";
+import Synthesis from "./components/Synthesis.jsx";
 
 function App() {
   const [persons, setPersons] = useState(personItems);
@@ -13,16 +14,26 @@ function App() {
   };
 
   const handleFavorite = (index) => {
-    console.log("coucou");
     const tmpPersons = [...persons];
     tmpPersons[index].favorite = !tmpPersons[index].favorite;
     setPersons(tmpPersons);
   };
 
+  const handleLikes = (index) => {
+    const tmpPersons = [...persons];
+    tmpPersons[index].likes = tmpPersons[index].likes + 1;
+    setPersons(tmpPersons);
+  };
+
   return (
     <div className="App">
-      <DisplayPerson persons={persons} handleFavorite={handleFavorite} />
+      <DisplayPerson
+        persons={persons}
+        handleFavorite={handleFavorite}
+        handleLikes={handleLikes}
+      />
       <AddPerson handleAddPerson={handleAddPerson} />
+      <Synthesis persons={persons} />
     </div>
   );
 }

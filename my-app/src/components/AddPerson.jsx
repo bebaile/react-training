@@ -17,7 +17,15 @@ const AddPerson = ({ handleAddPerson }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    handleAddPerson([{ firstname: firstname, lastname: lastname, age: age }]);
+    handleAddPerson([
+      {
+        firstname: firstname,
+        lastname: lastname,
+        age: age,
+        favorite: false,
+        likes: 0,
+      },
+    ]);
     const refresh = document.querySelectorAll("input");
     for (let i = 0; i < refresh.length; i++) {
       refresh[i].value = "";

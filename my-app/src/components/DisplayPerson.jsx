@@ -1,7 +1,7 @@
 import React from "react";
 import Person from "./Person";
 
-const DisplayPerson = ({ persons, handleFavorite }) => {
+const DisplayPerson = ({ persons, handleFavorite, handleLikes }) => {
   return (
     <div>
       {persons.map((person, id) => {
@@ -10,6 +10,7 @@ const DisplayPerson = ({ persons, handleFavorite }) => {
             person={person}
             key={id}
             handleFavorite={() => handleFavorite(id)}
+            handleLikes={() => handleLikes(id)}
           />
         );
       })}

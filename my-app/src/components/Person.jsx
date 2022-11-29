@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import favorite from "../assets/favorite.png";
 
-const Person = ({ person, handleFavorite }) => {
-  const [count, setCount] = useState(0);
+const Person = ({ person, handleFavorite, handleLikes }) => {
+  // const [count, setCount] = useState(0);
 
-  const clickHandler = () => {
-    setCount(count + 1);
-  };
+  // const clickHandler = () => {
+  //   setCount(count + 1);
+  // };
 
   return (
     <div className="coordonees">
@@ -17,15 +17,15 @@ const Person = ({ person, handleFavorite }) => {
       </div>
       <div className="interaction">
         <div>
-          <button className="btn" onClick={clickHandler}>
-            <div>Increment click</div>
+          <button className="btn" onClick={handleLikes}>
+            <div>Increment likes</div>
           </button>
         </div>
-        <div>Clicks : {count}</div>
+        <div>Likes : {person.likes}</div>
         <div className="favorite-div">
           <img
             src={favorite}
-            alt={`favorite-${count}`}
+            alt={`favorite`}
             className={
               person.favorite === false ? "favorite" : "favorite clicked"
             }

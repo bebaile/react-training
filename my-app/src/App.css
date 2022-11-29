@@ -1,3 +1,7 @@
+.App {
+  margin: 1rem;
+}
+
 .loading {
   display: flex;
   justify-content: center;
@@ -6,7 +10,7 @@
 }
 
 .coordonees {
-  margin: 1rem;
+  margin: 1rem 0;
   padding: 1rem;
   border: 1px solid rgba(0, 0, 0, 0.408);
   border-radius: 5px;
@@ -37,7 +41,7 @@
 }
 
 .add-person {
-  margin: 1rem;
+  margin: 1rem 0;
   padding: 1rem;
   border: 1px solid rgba(0, 0, 0, 0.408);
   border-radius: 5px;
@@ -123,4 +127,8 @@ label div {
   background-color: #c85000;
   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
   transform: translateY(0);
+}
+
+.synthesis {
+  text-align: center;
 }
