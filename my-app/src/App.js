@@ -1,42 +1,36 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
+import personItems from "./data/data.js";
 import DisplayPerson from "./components/DisplayPerson";
 import AddPerson from "./components/AddPerson";
 import "./App.css";
 
 function App() {
-  const persons = [
-    {
-      firstname: "Basile",
-      lastname: "Carle",
-      age: "40",
-    },
-    {
-      firstname: "Manon",
-      lastname: "Carle",
-      age: "5",
-    },
-  ];
+  const [persons, setPersons] = useState(personItems);
 
-  const [tmpPersons, setTmpPersons] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const counter = useRef(0);
+  // const [tmpPersons, setTmpPersons] = useState([]);
+
   const handleAddPerson = (personToAdd) => {
-    setTmpPersons(...tmpPersons, personToAdd);
+    const tmpPersons = [...persons, ...personToAdd];
+    console.log(tmpPersons);
+    setPersons(tmpPersons);
   };
+
   useEffect(() => {
+    console.log(persons);
     setIsLoading(false);
-  }, [tmpPersons]);
+  }, [persons]);
 
   return (
     <div className="App">
       {isLoading ? (
-        <div className="loading">... Chargement en cours</div>
+        <div className="loading">...chargement</div>
       ) : (
-        <DisplayPerson persons={persons} tmpPersons={tmpPersons} />
+        <DisplayPerson persons={persons} />
       )}
-
       <AddPerson
-        handleAddPerson={(personToAdd) => handleAddPerson(personToAdd)}
+        // handleAddPerson={(personToAdd) => handleAddPerson(personToAdd)}
+        handleAddPerson={handleAddPerson}
       />
     </div>
   );
