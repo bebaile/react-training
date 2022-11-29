@@ -22,9 +22,18 @@
 
 .interaction {
   display: flex;
+  align-items: center;
 }
 .interaction div {
   padding: 5px;
+}
+
+.favorite {
+  width: 1rem;
+}
+
+.clicked {
+  background-color: hsla(0, 72%, 54%, 0.714);
 }
 
 .add-person {
@@ -55,6 +64,19 @@ label {
 
 label div {
   margin-left: 1rem;
+}
+
+.btn {
+  background-color: hsl(120, 80%, 40%);
+  border: 0px;
+  border-radius: 5px;
+  color: white;
+}
+.btn:hover {
+  background-color: hsl(120, 100%, 40%);
+  border: 0px;
+  border-radius: 5px;
+  color: white;
 }
 
 .button-5 {

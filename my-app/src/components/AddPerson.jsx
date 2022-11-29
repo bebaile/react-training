@@ -16,13 +16,6 @@ const AddPerson = ({ handleAddPerson }) => {
   };
 
   const handleClick = (e) => {
-    console.log(
-      `Nous allons remonter les valeurs suivante : 
-        {firstname: ${firstname},
-        lastname: ${lastname},
-        age: ${age},
-      `
-    );
     e.preventDefault();
     handleAddPerson([{ firstname: firstname, lastname: lastname, age: age }]);
     const refresh = document.querySelectorAll("input");
