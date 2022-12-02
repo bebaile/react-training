@@ -5,6 +5,7 @@ const personItems = [
     age: "40",
     favorite: false,
     likes: 0,
+    isVisible: false,
   },
   {
     firstname: "Manon",
@@ -12,6 +13,7 @@ const personItems = [
     age: "5",
     favorite: false,
     likes: 0,
+    isVisible: false,
   },
 ];
 
