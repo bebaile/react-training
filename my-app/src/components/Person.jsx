@@ -4,12 +4,8 @@ import AddPerson from "./AddPerson";
 import VisibleContext from "../contexts/VisibleContext";
 
 const Person = ({ person, index }) => {
-  const { isVisible, setIsVisible, handleFavorite, handleLikes } =
+  const { handleFavorite, handleLikes, displayModify } =
     useContext(VisibleContext);
-
-  const modify = () => {
-    setIsVisible(!isVisible);
-  };
 
   const id = person.firstname + person.lastname;
 
@@ -23,7 +19,7 @@ const Person = ({ person, index }) => {
         </div>
         <div className="interaction">
           <div>
-            <button className="btn" onClick={modify}>
+            <button className="btn" onClick={() => displayModify(index)}>
               <div>Modifier la fiche contact</div>
             </button>
             <button className="btn" onClick={() => handleLikes(index)}>
@@ -44,7 +40,7 @@ const Person = ({ person, index }) => {
           </div>
         </div>
       </div>
-      {isVisible ? (
+      {person.isVisible ? (
         <div className="modify-person">
           <AddPerson role="modify" person={person} index={index} />
         </div>

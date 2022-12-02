@@ -7,8 +7,6 @@ export const VisibleContextProvider = ({ children }) => {
   const [persons, setPersons] = useState(personItems);
 
   const handleAddPerson = (personToAdd, role, index) => {
-    console.log(personToAdd[0].firstname);
-    console.log(personToAdd);
     if (role === "add") {
       const tmpPersons = [...persons, ...personToAdd];
       setPersons(tmpPersons);
@@ -19,6 +17,7 @@ export const VisibleContextProvider = ({ children }) => {
       tmpPerson[index].lastname = personToAdd[0].lastname;
       tmpPerson[index].age = personToAdd[0].age;
       setPersons(tmpPerson);
+      displayModify(index);
     }
   };
   const handleFavorite = (index) => {
@@ -33,17 +32,21 @@ export const VisibleContextProvider = ({ children }) => {
     setPersons(tmpPersons);
   };
 
-  const [isVisible, setIsVisible] = useState(false);
+  const displayModify = (index) => {
+    const tmpPersons = [...persons];
+    tmpPersons[index].isVisible = !tmpPersons[index].isVisible;
+    setPersons(tmpPersons);
+  };
+
   return (
     <VisibleContext.Provider
       value={{
-        isVisible,
-        setIsVisible,
         persons,
         setPersons,
         handleAddPerson,
         handleFavorite,
         handleLikes,
+        displayModify,
       }}
     >
       {children}
