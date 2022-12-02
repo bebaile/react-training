@@ -1,28 +1,41 @@
 .App {
   margin: 1rem;
+  min-width: 600px;
 }
 
 .navbar {
   background-color: hsla(0, 0%, 0%, 0.673);
-  /* width: 300px; */
   height: 1.5rem;
   border-radius: 10px;
   margin: 1rem auto;
-  padding: 5px;
+  /* padding: 5px; */
   border: 1px solid hsla(0, 20%, 20%, 0.282);
   box-shadow: 1px 1px 1px rgb(128, 128, 128, 0.3);
   color: white;
+  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+.navbar ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+.navbar a {
   text-decoration: none;
 }
 
-.navbar div {
-  padding: 5px;
+.navbar a:visited {
+  color: white;
+  text-decoration: none;
 }
 
-.navbar div:hover {
+.navbar a:hover {
+  filter: drop-shadow(2px 2px 1px rgba(116, 113, 113, 0.562));
   color: #c85000;
   cursor: pointer;
 }
