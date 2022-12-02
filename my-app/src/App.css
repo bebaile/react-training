@@ -2,6 +2,30 @@
   margin: 1rem;
 }
 
+.navbar {
+  background-color: hsla(0, 0%, 0%, 0.673);
+  /* width: 300px; */
+  height: 1.5rem;
+  border-radius: 10px;
+  margin: 1rem auto;
+  padding: 5px;
+  border: 1px solid hsla(0, 20%, 20%, 0.282);
+  box-shadow: 1px 1px 1px rgb(128, 128, 128, 0.3);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-decoration: none;
+}
+
+.navbar div {
+  padding: 5px;
+}
+
+.navbar div:hover {
+  color: #c85000;
+  cursor: pointer;
+}
 .loading {
   display: flex;
   justify-content: center;
