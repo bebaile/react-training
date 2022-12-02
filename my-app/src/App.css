@@ -40,6 +40,14 @@
   background-color: hsla(0, 72%, 54%, 0.714);
 }
 
+.modify-person {
+  margin-left: 1rem;
+}
+
+.modify-person .add-person {
+  border: 1px dotted hsla(0, 0%, 0%, 0.276);
+}
+
 .add-person {
   margin: 1rem 0;
   padding: 1rem;

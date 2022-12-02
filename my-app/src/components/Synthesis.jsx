@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import VisibleContext from "../contexts/VisibleContext";
 
-const Synthesis = ({ persons }) => {
+const Synthesis = () => {
+  const { persons } = useContext(VisibleContext);
   const favoriteCounter = persons.filter((person) => person.favorite === true)
     .length;
 

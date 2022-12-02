@@ -1,18 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Person from "./Person";
+import VisibleContext from "../contexts/VisibleContext";
 
-const DisplayPerson = ({ persons, handleFavorite, handleLikes }) => {
+const DisplayPerson = () => {
+  const { persons } = useContext(VisibleContext);
+
   return (
     <div>
-      {persons.map((person, id) => {
-        return (
-          <Person
-            person={person}
-            key={id}
-            handleFavorite={() => handleFavorite(id)}
-            handleLikes={() => handleLikes(id)}
-          />
-        );
+      {persons.map((person, index) => {
+        return <Person person={person} key={index} index={index} />;
       })}
     </div>
   );
