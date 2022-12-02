@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
-import personItems from "./data/data.js";
-import DisplayPerson from "./components/DisplayPerson";
-import AddPerson from "./components/AddPerson";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Contacts from "./pages/Contacts";
+import NavBar from "./components/NavBar.jsx";
+
 import "./App.css";
-import Synthesis from "./components/Synthesis.jsx";
 
 import VisibleContext, {
   VisibleContextProvider,
@@ -11,13 +11,18 @@ import VisibleContext, {
 
 function App() {
   return (
-    <VisibleContextProvider>
-      <div className="App">
-        <DisplayPerson />
-        <AddPerson role="add" />
-        <Synthesis />
-      </div>
-    </VisibleContextProvider>
+    <Router>
+      <VisibleContextProvider>
+        <>
+          <div className="App">
+            <NavBar />
+            <Routes>
+              <Route path="/" element={<Contacts />} />
+            </Routes>
+          </div>
+        </>
+      </VisibleContextProvider>
+    </Router>
   );
 }
 
