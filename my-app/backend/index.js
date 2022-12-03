@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const mysql = require("mysql2");
 
@@ -13,6 +14,12 @@ const connection = mysql.createConnection({
   password: DB_PASSWORD,
   database: DB_NAME,
 });
+
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
 
 connection.connect((err) => {
   if (err) {
@@ -30,6 +37,17 @@ app.listen(port, (err) => {
   } else {
     console.error(`Server listening on port ${port}`);
   }
+});
+
+app.get("/", (req, res) => {
+  connection.query("SELECT * FROM contacts", (err, result) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send(`Error retrieving data from the database : ${err}`);
+    } else {
+      res.status(200).send(result);
+    }
+  });
 });
 
 module.exports = app;

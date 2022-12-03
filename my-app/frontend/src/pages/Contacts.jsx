@@ -7,7 +7,7 @@ const Contacts = () => {
   return (
     <div className="contacts">
       <DisplayPerson />
-      <AddPerson role="add" />
+      <AddPerson action="add" />
       <Synthesis />
     </div>
   );

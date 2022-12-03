@@ -1,16 +1,16 @@
 import React, { useContext, useState } from "react";
 import VisibleContext from "../contexts/VisibleContext";
 
-const AddPerson = ({ role, person, index }) => {
+const AddPerson = ({ action, person, index }) => {
   const { handleAddPerson } = useContext(VisibleContext);
 
   const [firstname, setFirstname] = useState(
-    role === "modify" ? person.firstname : ""
+    action === "modify" ? person.firstname : ""
   );
   const [lastname, setLastname] = useState(
-    role === "modify" ? person.lastname : ""
+    action === "modify" ? person.lastname : ""
   );
-  const [age, setAge] = useState(role === "modify" ? person.age : "");
+  const [age, setAge] = useState(action === "modify" ? person.age : "");
 
   const handleFirstname = (e) => {
     setFirstname(e.target.value);
@@ -34,7 +34,7 @@ const AddPerson = ({ role, person, index }) => {
           likes: 0,
         },
       ],
-      role,
+      action,
       index
     );
     const refresh = document.querySelectorAll("input");
@@ -55,7 +55,7 @@ const AddPerson = ({ role, person, index }) => {
                   type="text"
                   id="first-name"
                   placeholder="Margot"
-                  defaultValue={role === "modify" ? person.firstname : ""}
+                  defaultValue={action === "modify" ? person.firstname : ""}
                   onChange={handleFirstname}
                 ></input>
               </div>
@@ -68,7 +68,7 @@ const AddPerson = ({ role, person, index }) => {
                 <input
                   type="text"
                   id="last-name"
-                  defaultValue={role === "modify" ? person.lastname : ""}
+                  defaultValue={action === "modify" ? person.lastname : ""}
                   onChange={handleLastname}
                 ></input>
               </div>
@@ -81,7 +81,7 @@ const AddPerson = ({ role, person, index }) => {
                 <input
                   type="text"
                   id="age"
-                  defaultValue={role === "modify" ? person.age : ""}
+                  defaultValue={action === "modify" ? person.age : ""}
                   onChange={handleAge}
                 ></input>
               </div>
@@ -91,7 +91,7 @@ const AddPerson = ({ role, person, index }) => {
 
         <div>
           <button className="button-5" onClick={handleClick}>
-            {role === "modify" ? "Modifier" : "Ajouter cette personne"}
+            {action === "modify" ? "Modifier" : "Ajouter cette personne"}
           </button>
         </div>
       </form>
