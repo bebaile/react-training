@@ -4,10 +4,9 @@ import AddPerson from "./AddPerson";
 import VisibleContext from "../contexts/VisibleContext";
 
 const Person = ({ person, index }) => {
-  const { handleFavorite, handleLikes, displayModify } =
-    useContext(VisibleContext);
-
-  const id = person.firstname + person.lastname;
+  const { handleFavorite, handleLikes, displayModify } = useContext(
+    VisibleContext
+  );
 
   return (
     <>
@@ -42,7 +41,7 @@ const Person = ({ person, index }) => {
       </div>
       {person.isVisible ? (
         <div className="modify-person">
-          <AddPerson role="modify" person={person} index={index} />
+          <AddPerson action="modify" person={person} index={index} />
         </div>
       ) : (
         ""

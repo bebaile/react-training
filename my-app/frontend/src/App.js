@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Contacts from "./pages/Contacts";
 import Connexion from "./pages/Connexion";
@@ -8,9 +8,7 @@ import NavBar from "./components/NavBar.jsx";
 
 import "./App.css";
 
-import VisibleContext, {
-  VisibleContextProvider,
-} from "./contexts/VisibleContext";
+import { VisibleContextProvider } from "./contexts/VisibleContext";
 
 function App() {
   return (
